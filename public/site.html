@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Анна Лисина — мастер маникюра</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap">
+<style>
+:root{--milk:#FBF8F3;--cream:#F2EBE0;--sand:#E3D6C4;--taupe:#8A7560;--cocoa:#3B2F27;--rose:#B98A85;
+--serif:"Cormorant Garamond",Georgia,serif;--sans:"Jost",system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--milk);color:var(--cocoa);font:300 17px/1.65 var(--sans)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;margin:0}
+h1{font-size:clamp(46px,8vw,92px);letter-spacing:-.01em}
+h2{font-size:clamp(34px,5vw,56px);margin-bottom:14px}
+p{margin:0 0 1em;max-width:58ch}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--taupe);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+header{position:sticky;top:0;z-index:10;background:rgba(251,248,243,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--sand)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--serif);font-size:24px;text-decoration:none}
+nav{display:flex;gap:26px;font-size:15px}
+nav a{text-decoration:none;color:var(--taupe);transition:color .2s}
+nav a:hover{color:var(--cocoa)}
+.btn{display:inline-block;padding:15px 32px;border-radius:999px;border:1px solid var(--cocoa);background:var(--cocoa);color:var(--milk);font:400 15px var(--sans);text-decoration:none;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px -12px rgba(59,47,39,.5)}
+.btn.ghost{background:transparent;color:var(--cocoa)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero p.lead{font-size:20px;color:var(--taupe);margin:22px 0 34px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.portrait{aspect-ratio:4/5;border-radius:200px 200px 24px 24px;background:radial-gradient(circle at 30% 20%,#f6ede2,transparent 55%),linear-gradient(160deg,var(--sand),var(--rose));box-shadow:0 40px 70px -35px rgba(59,47,39,.45);display:flex;align-items:flex-end;justify-content:center;padding:28px;text-align:center;color:var(--milk);font:italic 18px var(--serif);animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:64px;border-top:1px solid var(--sand);padding-top:40px}
+.perks h3{font-size:26px;margin-bottom:8px}.perks p{color:var(--taupe);font-size:16px}
+.palette{background:var(--cream)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0 8px}
+.chip{border:1px solid var(--taupe);background:transparent;color:var(--cocoa);padding:8px 20px;border-radius:999px;font:400 14px var(--sans);cursor:pointer;transition:background .2s,color .2s}
+.chip[aria-pressed=true]{background:var(--cocoa);color:var(--milk);border-color:var(--cocoa)}
+.stage{display:grid;grid-template-columns:1fr minmax(240px,320px) 1fr;gap:24px;align-items:center;margin-top:30px;perspective:1100px}
+.shelf{display:flex;gap:18px;justify-content:center;align-items:flex-end;min-height:240px;padding:20px;transform-style:preserve-3d}
+.shelf.l{transform:rotateY(18deg)}.shelf.r{transform:rotateY(-18deg)}
+.bt{--c:#ccc;background:none;border:0;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;transition:transform .35s cubic-bezier(.2,.7,.2,1);position:relative}
+.bt::after{content:"";position:absolute;bottom:-12px;width:70px;height:14px;border-radius:50%;background:radial-gradient(rgba(59,47,39,.35),transparent 70%)}
+.bt:hover{transform:translateY(-14px) rotateZ(-3deg)}
+.bt[aria-pressed=true]{transform:translateY(-22px) scale(1.08)}
+.cap{width:22px;height:44px;border-radius:5px 5px 2px 2px;background:linear-gradient(90deg,#1f1813,#5a4a3d 45%,#1f1813)}
+.neck{width:14px;height:8px;background:#d9d2c8}
+.body{width:46px;height:96px;border-radius:10px 10px 14px 14px;background:linear-gradient(100deg,rgba(255,255,255,.55) 0 14%,transparent 30%,rgba(0,0,0,.18) 100%),var(--c);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3),8px 14px 18px -8px rgba(59,47,39,.4)}
+.bt.big .cap{width:34px;height:62px}.bt.big .neck{width:22px}.bt.big .body{width:76px;height:150px;border-radius:14px 14px 20px 20px}
+.center{text-align:center}
+.center .bt{margin:0 auto 34px;cursor:default}
+.center .bt:hover{transform:none}
+.cname{font:500 32px var(--serif)}.chex{font:400 15px var(--sans);letter-spacing:.12em;color:var(--taupe);margin:4px 0 20px}
+.services{display:grid;gap:0;margin-top:40px}
+.row{display:grid;grid-template-columns:1fr auto auto;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--sand)}
+.row h3{font-size:28px}.row p{margin:0;color:var(--taupe);font-size:15px}
+.row .t{color:var(--taupe);font-size:15px}.row .p{font:500 24px var(--serif)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px;background:var(--cream);padding:36px;border-radius:24px;box-shadow:0 30px 60px -40px rgba(59,47,39,.45)}
+label{display:grid;gap:6px;font-size:14px;color:var(--taupe)}
+.full{grid-column:1/-1}
+input,select,textarea{font:300 16px var(--sans);padding:13px 14px;border:1px solid var(--sand);border-radius:12px;background:var(--milk);color:var(--cocoa)}
+.pick{display:flex;align-items:center;gap:12px}.dot{width:30px;height:30px;border-radius:50%;border:1px solid var(--sand);flex:none;background:#fff}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:14px}.consent input{margin-top:4px}
+.msg{grid-column:1/-1;font-size:15px;color:var(--taupe);min-height:24px}
+footer{padding:40px 0;border-top:1px solid var(--sand);color:var(--taupe);font-size:14px}
+@media(max-width:860px){nav{display:none}.hero .wrap{grid-template-columns:1fr}.portrait{max-width:380px}.perks{grid-template-columns:1fr;gap:24px}
+.stage{grid-template-columns:1fr;perspective:none}.shelf.l,.shelf.r{transform:none;min-height:150px}.center{order:-1}
+form{grid-template-columns:1fr;padding:24px}.row{grid-template-columns:1fr auto}.row .t{grid-column:1}section{padding:64px 0}}
+.stage{display:block;perspective:none}
+.fan{display:flex;justify-content:center;height:290px;padding-top:34px;margin-top:10px;perspective:1100px}
+.fan .bt{margin:0 -5px;transform-origin:50% 210px;transform:rotate(var(--a,0deg));transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.fan .bt::after{display:none}
+.fan .bt:hover{transform:rotate(var(--a,0deg)) translateY(-18px)}
+.fan .bt[aria-pressed=true]{transform:rotate(var(--a,0deg)) translateY(-30px) scale(1.12);z-index:2}
+.tip{display:block;width:56px;height:98px;border-radius:50% 50% 14px 14px/42% 42% 14px 14px;background:linear-gradient(105deg,rgba(255,255,255,.6) 0 12%,transparent 34%,rgba(0,0,0,.2) 100%),var(--c);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35),6px 12px 16px -6px rgba(59,47,39,.45)}
+.fan .bt[aria-pressed=true] .tip{box-shadow:inset 0 0 0 2px #C9A96A,6px 14px 20px -6px rgba(59,47,39,.5)}
+@media(max-width:860px){.fan{justify-content:flex-start;overflow-x:auto;height:auto;padding:36px 20px 30px;scroll-snap-type:x mandatory;perspective:none}.fan .bt{margin:0 7px;flex:none;scroll-snap-align:center;transform:none!important}.fan .bt[aria-pressed=true]{transform:translateY(-10px)!important}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="#top">Анна Лисина</a>
+<nav><a href="#palette">Палитра</a><a href="#services">Услуги</a><a href="#booking">Запись</a></nav>
+<a class="btn" href="#booking" style="padding:10px 22px">Записаться</a></div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+<div><h1>Маникюр, который выглядит дорого</h1>
+<p class="lead">Частный мастер, 7 лет практики. Аккуратная форма, стойкое покрытие и спокойная атмосфера в студии на одного клиента.</p>
+<div class="cta"><a class="btn" href="#booking">Записаться</a><a class="btn ghost" href="#palette">Посмотреть работы</a></div></div>
+<div class="portrait" role="img" aria-label="Место для фотографии мастера">Здесь будет фото мастера</div>
+</div>
+<div class="wrap"><div class="perks">
+<div><h3>Стерильность</h3><p>Каждый инструмент проходит дезинфекцию и стерилизацию, крафт-пакет вскрывается при вас.</p></div>
+<div><h3>Покрытие на 3–4 недели</h3><p>Работаю с проверенными гель-лаками и подбираю базу под ваши ногти.</p></div>
+<div><h3>Один клиент за раз</h3><p>Никакой спешки и очередей: время в студии принадлежит только вам.</p></div>
+</div></div></section>
+
+<section class="palette" id="palette"><div class="wrap">
+<h2>Палитра гель-лаков</h2>
+<p>Выберите оттенок — он сам попадёт в форму записи.</p>
+<div class="chips" id="chips" role="group" aria-label="Категории цветов"></div>
+<div class="stage">
+<div class="center"><div class="bt big" id="big"><div class="cap"></div><div class="neck"></div><div class="body"></div></div>
+<div class="cname" id="cname"></div><div class="chex" id="chex"></div>
+<a class="btn" href="#booking">Записаться с этим цветом</a></div>
+</div>
+<div class="fan" id="fan" role="group" aria-label="Образцы гель-лаков"></div>
+</div></section>
+
+<section id="services"><div class="wrap">
+<h2>Услуги и цены</h2>
+<p>Демонстрационные значения — мастер заменит их в панели управления.</p>
+<div class="services" id="svc"><p>Загрузка…</p></div>
+</div></section>
+
+<section class="palette" id="booking"><div class="wrap">
+<h2>Онлайн-запись</h2>
+<p>Заявка уйдёт мастеру, а запись станет подтверждённой только после его ответа.</p>
+<form id="f" novalidate>
+<label>Имя<input name="name" required autocomplete="name"></label>
+<label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7 ___ ___ __ __"></label>
+<label>Telegram<input name="tg" placeholder="@username"></label>
+<label>Услуга<select name="service" id="svSel"></select></label>
+<label>Цвет<span class="pick"><span class="dot" id="fdot"></span><input id="fcolor" name="color" readonly placeholder="Выберите в палитре" style="flex:1"></span></label>
+<label>Дата<input name="date" id="dateIn" type="date" required></label>
+<label>Время<select name="time" id="timeSel" required><option value="">Сначала выберите дату</option></select></label>
+<input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
+<label class="full">Комментарий<textarea name="comment" rows="3"></textarea></label>
+<label class="consent full"><input type="checkbox" name="agree" required><span>Согласен на обработку персональных данных (политика будет добавлена на сайт)</span></label>
+<div class="full"><button class="btn" type="submit">Отправить заявку</button></div>
+<div class="msg" id="msg" role="status"></div>
+</form></div></section>
+</main>
+<footer><div class="wrap">Демонстрационная версия: все данные временные</div></footer>
+
+<script>
+const COLORS=[
+["Молочный нюд","#EADBCB","Нюд"],["Тёплый беж","#D9BFA3","Нюд"],["Капучино","#B9967A","Нюд"],["Сливочный","#F1E4D3","Нюд"],
+["Пудровая роза","#E3B7B1","Розовые"],["Пыльная роза","#C98F8D","Розовые"],["Зефир","#F0CFCB","Розовые"],["Тёмный пион","#A5656B","Розовые"],
+["Бордо","#6E2A35","Красные"],["Спелая вишня","#8E2B3A","Красные"],["Терракот","#B35E47","Красные"],
+["Шоколад","#4A342B","Акценты"],["Шампань","#D8C08E","Акценты"],["Пепельный мокко","#8C7A70","Акценты"]];
+const CATS=["Все","Нюд","Розовые","Красные","Акценты"];
+const SERVICES=[["Маникюр с покрытием гель-лаком","Обработка, выравнивание, покрытие в 2 слоя","2 ч 30 мин",3500],
+["Маникюр без покрытия","Аппаратный или комбинированный","1 ч 30 мин",2200],
+["Укрепление гелем","База, укрепление, покрытие","2 ч 45 мин",4200],
+["Дизайн (1 ноготь)","Френч, втирка, рисунок","20 мин",250]];
+let cat="Все",sel=COLORS[0];
+const $=id=>document.getElementById(id);
+function bottle(c,small){const b=document.createElement("button");b.type="button";b.className="bt";b.style.setProperty("--c",c[1]);
+b.setAttribute("aria-label",c[0]+" "+c[1]);b.setAttribute("aria-pressed",c===sel);
+b.innerHTML='<span class="tip"></span>';b.onclick=()=>choose(c);return b}
+function render(){
+const list=COLORS.filter(c=>cat==="Все"||c[2]===cat);
+if(!list.includes(sel))sel=list[0];
+const h=Math.ceil(list.length/2);
+$("fan").replaceChildren(...list.map((c,i)=>{const b=bottle(c);b.style.setProperty("--a",((i-(list.length-1)/2)*(list.length>9?5:8))+"deg");return b}));
+$("chips").replaceChildren(...CATS.map(n=>{const b=document.createElement("button");b.className="chip";b.textContent=n;b.setAttribute("aria-pressed",n===cat);b.onclick=()=>{cat=n;render()};return b}));
+show()}
+function show(){
+$("big").style.setProperty("--c",sel[1]);$("cname").textContent=sel[0];$("chex").textContent=sel[1];
+$("fcolor").value=sel[0]+" "+sel[1];$("fdot").style.background=sel[1];
+document.querySelectorAll(".fan .bt").forEach(b=>b.setAttribute("aria-pressed",b.getAttribute("aria-label")===sel[0]+" "+sel[1]))}
+function choose(c){sel=c;show()}
+let SV=[];
+const fmt=n=>n.toLocaleString("ru-RU")+" ₽";
+const dur=m=>(m>=60?Math.floor(m/60)+" ч ":"")+(m%60?m%60+" мин":"");
+async function loadServices(){
+ try{const r=await fetch("/api/services");const j=await r.json();if(!r.ok)throw 0;SV=j.services;
+ $("svc").innerHTML=SV.map(s=>`<div class="row"><div><h3>${esc(s.name)}</h3><p>${esc(s.description)}</p></div><span class="t">${dur(s.duration_min)}</span><span class="p">${fmt(s.price_rub)}</span></div>`).join("");
+ $("svSel").innerHTML=SV.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join("");loadSlots()}
+ catch{$("svc").innerHTML="<p>Не удалось загрузить услуги. Обновите страницу.</p>"}}
+function esc(t){return String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+async function loadSlots(){
+ const d=$("dateIn").value,sv=$("svSel").value,t=$("timeSel");
+ if(!d||!sv){t.innerHTML='<option value="">Сначала выберите дату</option>';return}
+ t.innerHTML='<option value="">Загрузка…</option>';
+ try{const r=await fetch(`/api/slots?date=${d}&service_id=${sv}`);const j=await r.json();if(!r.ok)throw 0;
+ t.innerHTML=j.slots.length?j.slots.map(x=>`<option>${x}</option>`).join(""):'<option value="">На эту дату нет времени</option>'}
+ catch{t.innerHTML='<option value="">Ошибка загрузки</option>'}}
+$("dateIn").min=new Date().toISOString().slice(0,10);
+$("dateIn").addEventListener("change",loadSlots);$("svSel").addEventListener("change",loadSlots);
+$("f").addEventListener("submit",async e=>{e.preventDefault();const f=e.target,m=$("msg"),btn=f.querySelector("button[type=submit]");
+ if(!f.agree.checked){m.textContent="Нужно согласие на обработку персональных данных.";return}
+ if(!f.time.value){m.textContent="Выберите дату и время.";return}
+ btn.disabled=true;m.textContent="Отправляем…";
+ try{const r=await fetch("/api/bookings",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({
+  name:f.name.value,phone:f.phone.value,telegram:f.tg.value,serviceId:f.service.value,color:f.color.value,
+  date:f.date.value,time:f.time.value,comment:f.comment.value,consent:true,website:f.website.value})});
+  const j=await r.json();
+  if(r.ok){m.textContent="Заявка отправлена. Запись станет подтверждённой после ответа мастера.";f.reset();show();$("timeSel").innerHTML='<option value="">Сначала выберите дату</option>'}
+  else{m.textContent=j.error||"Не удалось отправить заявку.";if(r.status===409)loadSlots()}}
+ catch{m.textContent="Нет связи с сервером. Попробуйте ещё раз."}
+ btn.disabled=false});
+loadServices();
+render();
+</script>
+</body>
+</html>
